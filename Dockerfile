@@ -58,4 +58,5 @@ EXPOSE 3000
 ENV PORT 3000
 
 #CMD ["node", "server.js"]
-CMD HOSTNAME="0.0.0.0" node server.js
+#CMD HOSTNAME="0.0.0.0" node server.js
+CMD npm start
