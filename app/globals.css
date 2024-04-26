@@ -2,32 +2,175 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+.font-dancing-script {
+  font-family: var(--font-dancing-script);
+}
+
+.font-jacquard-24 {
+  font-family: var(--font-jacquard-24);
+}
+
+.font-jersey-15 {
+  font-family: var(--font-jersey-15);
+}
+
+.font-lugrasimo {
+  font-family: var(--font-lugrasimo);
+}
+
+.font-merriweather {
+  font-family: var(--font-merriweather);
+}
+
+.font-montserrat {
+  font-family: var(--font-montserrat);
+}
+
+.font-open-sans {
+  font-family: var(--font-open-sans);
+}
+
+.font-oswald {
+  font-family: var(--font-oswald);
+}
+
+.font-platypi {
+  font-family: var(--font-platypi);
+}
+
+.font-playfair-display {
+  font-family: var(--font-playfair-display);
+}
+
+.font-poppins {
+  font-family: var(--font-poppins);
+}
+
+.font-raleway {
+  font-family: var(--font-raleway);
+}
+
+.font-roboto {
+  font-family: var(--font-roboto);
+}
+
+.font-sedan {
+  font-family: var(--font-sedan);
+}
+
+.font-ubuntu {
+  font-family: var(--font-ubuntu);
+}
+
+.font-kaushan-script {
+  font-family: var(--font-kaushan-script);
+}
+
+.font-satisfy {
+  font-family: var(--font-satisfy);
+}
+
+.font-architects-daughter {
+  font-family: var(--font-architects-daughter);
+}
+
+.font-fredericka-the-great {
+  font-family: var(--font-fredericka-the-great);
+}
+
+.font-creepster {
+  font-family: var(--font-creepster);
+}
+
+.font-rye {
+  font-family: var(--font-rye);
+}
+
+.font-press-start-2p {
+  font-family: var(--font-press-start-2p);
+}
+
+.font-monoton {
+  font-family: var(--font-monoton);
+}
+
+.font-luckiest-guy {
+  font-family: var(--font-luckiest-guy);
+}
+
+.font-bangers {
+  font-family: var(--font-bangers);
+}
+
+.font-cinzel-decorative {
+  font-family: var(--font-cinzel-decorative);
+}
+
+.font-fascinate-inline {
+  font-family: var(--font-fascinate-inline);
+}
+
+.font-pinyon-script {
+  font-family: var(--font-pinyon-script);
+}
+
+.font-gloria-hallelujah {
+  font-family: var(--font-gloria-hallelujah);
+}
+
+.font-ranchers {
+  font-family: var(--font-ranchers);
+}
+
+.bingo-card {
+  display: grid;
+  width: 100%;
+  gap: 0;
+  box-sizing: border-box;
+}
+
+.bingo-card > div {
+  border: 2px solid black;
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  word-break: break-word;
+  text-overflow: ellipsis;
+}
+
+.bingo-card > div::before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+
+@media print {
+  @page {
+    size: auto;
+    margin: 0mm;
+    size: landscape;
+  }
+
+  main {
+    display: none !important;
+  }
+
+  .print {
+    display: grid;
+  }
+
+  .print > div {
+    page-break-after: always;
+    padding: 3rem;
+  }
+
+  .print > div:nth-child(even) {
+    margin-right: 0;
   }
 }
