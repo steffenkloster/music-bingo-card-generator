@@ -29,7 +29,7 @@ const Heading: React.FC<HeadingProps> = ({
       className={`${getTextWeight(weight)} ${
         enabled ? "" : "hidden"
       } font-${fontFamily} leading-none mb-4`}
-      style={{ fontSize: `${Math.max(1, size * 5)}%` }}
+      style={{ fontSize: `${size / 20}vw` }}
     >
       {text}
     </p>

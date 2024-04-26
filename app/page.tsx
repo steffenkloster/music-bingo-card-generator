@@ -253,8 +253,8 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex-1 card bg-white rounded-box shadow-xl p-12 items-center text-center overflow-scroll">
-          <div>
+        <div className="flex-1 card bg-white rounded-box shadow-xl p-12 items-center text-center overflow-scroll w-full">
+          <div className="w-full">
             <Heading {...extraHeading} />
             <Heading {...heading} />
             <Heading {...subHeading} />
