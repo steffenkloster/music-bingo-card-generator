@@ -57,12 +57,13 @@ export default function Home() {
     <>
       <main className="bg-stone-800 flex flex-col lg:flex-row p-4 lg:p-12 gap-4 lg:gap-12 h-screen">
         <div className="flex-1 card bg-white/80 rounded-box shadow-xl p-12 glass flex flex-col gap-8 overflow-scroll">
-          <div
-            className={`${
-              warningVisible ? "flex lg:hidden" : "hidden"
-            } flex-col gap-4 xl:flex-row xl:justify-between xl:items-center`}
-          >
-            <div role="alert" className="alert alert-warning">
+          <div className="flex flex-col gap-4 xl:flex-row xl:justify-between xl:items-center">
+            <div
+              role="alert"
+              className={`alert alert-warning ${
+                warningVisible ? "flex lg:hidden" : "hidden"
+              }`}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="stroke-current shrink-0 h-6 w-6"
