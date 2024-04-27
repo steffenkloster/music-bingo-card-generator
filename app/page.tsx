@@ -15,6 +15,8 @@ export default function Home() {
   const [cols, setCols] = useState(4);
   const [cardAmount, setCardAmount] = useState(10);
 
+  const [warningVisible, setWarningVisible] = useState(true);
+
   const [extraHeading, setExtraHeading] = useState<HeadingProps>({
     text: "En ekstra overskrift til bingo kortet",
     enabled: false,
@@ -53,13 +55,46 @@ export default function Home() {
 
   return (
     <>
-      <main className="bg-stone-800 flex p-12 gap-12 h-screen">
+      <main className="bg-stone-800 flex flex-col lg:flex-row p-4 lg:p-12 gap-4 lg:gap-12 h-screen">
         <div className="flex-1 card bg-white/80 rounded-box shadow-xl p-12 glass flex flex-col gap-8 overflow-scroll">
-          <div className="flex justify-between items-center">
-            <h1 className="text-3xl">Generer bingoplader</h1>
+          <div
+            className={`${
+              warningVisible ? "flex lg:hidden" : "hidden"
+            } flex-col gap-4 xl:flex-row xl:justify-between xl:items-center`}
+          >
+            <div role="alert" className="alert alert-warning">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="stroke-current shrink-0 h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                />
+              </svg>
+              <span className="text-sm">
+                Bingo generatoren fungerer dårligere på mobile enheder. Det
+                anbefales at bruge en PC.
+              </span>
+              <div>
+                <button
+                  type="button"
+                  className="btn btn-sm"
+                  onClick={() => setWarningVisible(false)}
+                >
+                  OK, forstået
+                </button>
+              </div>
+            </div>
+
+            <h1 className="text-xl md:text-3xl">Generer bingoplader</h1>
             <div className="flex gap-2">
               <label className="input input-bordered flex items-center gap-2">
-                Antal plader
+                Antal <span className="hidden md:inline-block">plader</span>
                 <input
                   type="number"
                   className="w-16"
@@ -142,7 +177,7 @@ export default function Home() {
                 name="my_tabs_2"
                 role="tab"
                 aria-controls="panel1"
-                className="tab"
+                className="tab text-xs md:text-base"
                 aria-label="Overskrift"
                 onChange={handleTabChange}
                 checked={activeTab === "tab1"}
@@ -163,7 +198,7 @@ export default function Home() {
                 name="my_tabs_2"
                 role="tab"
                 aria-controls="panel2"
-                className="tab"
+                className="tab text-xs md:text-base"
                 aria-label="Underskrift"
                 onChange={handleTabChange}
                 checked={activeTab === "tab2"}
@@ -184,8 +219,8 @@ export default function Home() {
                 name="my_tabs_2"
                 role="tab"
                 aria-controls="panel3"
-                className="tab"
-                aria-label="Ekstra overskrift"
+                className="tab text-xs md:text-base"
+                aria-label="Ekstra"
                 onChange={handleTabChange}
                 checked={activeTab === "tab3"}
               />
@@ -202,7 +237,7 @@ export default function Home() {
 
             <div className="flex justify-between w-full items-end">
               <div className="flex gap-4 items-end">
-                <label className="form-control flex w-full max-w-xs">
+                <label className="form-control flex xl:w-full xl:max-w-xs">
                   <div className="label flex-none">
                     <span className="label-text">
                       Tilføj ting (Brug <kbd className="kbd kbd-sm">Enter</kbd>{" "}
@@ -212,7 +247,7 @@ export default function Home() {
                   <input
                     type="text"
                     placeholder="Skriv her"
-                    className="input input-bordered flex-grow min-w-72"
+                    className="input input-bordered w-full xl:flex-grow xl:min-w-72"
                     value={thingText}
                     onChange={(e) => setThingText(e.target.value)}
                     onKeyDown={(e) => {
@@ -230,7 +265,9 @@ export default function Home() {
                   Tilføj
                 </button>
               </div>
-              <p className="text-sm">{things.length} ting tilføjet</p>
+              <p className="xl:block hidden text-sm">
+                {things.length} ting tilføjet
+              </p>
             </div>
             <div className="card card-bordered p-4 flex-row flex-wrap gap-2 max-h-40 overflow-scroll bg-white">
               {things.length === 0 ? (
