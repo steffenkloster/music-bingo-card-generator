@@ -67,7 +67,7 @@ const TextController: React.FC<TextControllerProps> = ({ text, setText }) => {
       <CustomSelect
         label="Skrifttype"
         options={fontOptions}
-        defaultOption="roboto"
+        defaultOption={text.fontFamily}
         onChange={(e) => {
           setText({ ...text, fontFamily: e.value });
         }}
